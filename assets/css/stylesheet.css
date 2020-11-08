@@ -1,0 +1,75 @@
+/* :root {
+    --blue:  rgb(8, 111, 247);
+  } */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-image: url(../images/background.png);
+}
+header{
+    background-color: rgba(8, 111, 247, 0.95);
+    border-bottom: rgba(255, 255, 255, 0.75) solid 1px;
+    border-bottom-left-radius: 15%;
+    border-bottom-right-radius: 15%;
+    margin-bottom: 3vw;
+}
+header nav ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    justify-content: flex-end;
+}
+header nav ul li{
+    
+    padding:1.5vw 3vw; 
+    font-size: larger;
+    font-weight: bold;
+    color: white;
+}
+header nav ul a{
+    text-decoration: none;
+    color: white;
+}
+main{
+    margin: 0 15%;
+}
+.test-head{
+    display: flex;
+    justify-content: center;
+    background-color: rgba(18, 128, 253, .97);
+    border-radius: 5%;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    color: white;
+    font-size: x-large;
+    padding: 3% 10% 3vw 10%;
+    border: rgba(255, 255, 255, 0.75) solid 1px;
+}
+.test-body{
+    display: block;
+    background-color:rgba(255, 255, 255, 0.95);
+    padding:3% 15% 3% 0;
+    border: rgba(8, 111, 247, 0.95) 5px solid;
+    border-top: none;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5%;
+}
+.test-body div{
+    padding: 1.5vw 0;
+    font-weight: bold;
+    font-size: larger;
+    line-height: 2;
+    border-top-right-radius: 40%;
+    border-bottom-right-radius: 60%;
+}
+.test-body div:hover{
+    color: white;
+    background-color: rgb(8, 111, 247);
+}
+.test-body p{
+    padding-left: 4%;
+}
