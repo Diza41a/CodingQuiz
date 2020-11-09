@@ -54,7 +54,7 @@ var questions = [
             answer: "A. Correct"
         }
     ];
-var time = 99;
+var time = 99, score = 0;
 var justLoaded = true;
 var currScore = 0;
 var questionEl = document.querySelector("#question"), testBodyEl = document.querySelector(".test-body"),
@@ -68,6 +68,28 @@ var timeInterval = setInterval(function() {
 var currEntry = 0;
 
 function displayQuestion(event){
+    if (questions[currEntry] === undefined)
+    {
+        var initials = prompt("Please enter your Initials: ");
+        score = score + time/2;
+        var scoreBoard = "";
+
+        var scoresArray = [], initialsArray = [];
+        if (localStorage.getItem("scores") === null || localStorage.getItem("initials") === null ||
+        localStorage.getItem("scores") === "" || localStorage.getItem("initials") === "")
+        {
+            localStorage.setItem("scores", [score]); localStorage.setItem("initials",[initials]);
+        }
+        scoresArray = JSON.parse(localStorage.getItem("scores")); initialsArray = JSON.parse(localStorage.getItem("initials"));
+        scoresArray.push(score); initialsArray.push(initials);
+        localStorage.setItem("scores", JSON.stringify(scoresArray)); localStorage.setItem("initials",JSON.stringify[initialsArray]);
+
+        for (var i = 0; i < scoresArray.length; i++)
+        {
+            scoreBoard += initialsArray[i] + ": " + scoresArray[i] + "\n";
+            alert(scoreBoard);
+        }
+    }
     if (!justLoaded)
     {
         if (!justSkipped)
@@ -80,11 +102,10 @@ function displayQuestion(event){
     }
     if (!justLoaded && !justSkipped)
     {
-        if (event.target.textContent === questions[currEntry].answer)
+        if (event.target.textContent === questions[currEntry].answer && time <= 0)
         {
-            alert("correct!");
-            event.target.style.backgroundColor = "lightgreen";
-            setTimeout('',2000);
+            score += 10;
+            // alert("correct!");
         }
     }
     if(!justLoaded)
@@ -145,6 +166,8 @@ function skipQuestion(){
     if (questions[currEntry-1]!==undefined)
     {
         questions.push(questions[currEntry-1]);
+        score-=5;
+        time-=5;
         displayQuestion();
     }
     // else
